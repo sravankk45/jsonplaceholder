@@ -2,12 +2,11 @@ package com.typicode.jsonplaceholder.pojo.user;
 
 public class UserPojo {
 
-	private String id;
+	private int id;
 	private String name;
-	private String userName;
+	private String username;
 	private String email;
 	private AddressPojo address;
-	private GeoPojo geoPojo;
 	private String phone;
 	private String website;
 	private CompanyPojo company;
@@ -15,13 +14,13 @@ public class UserPojo {
 	/**
 	 * @return the id
 	 */
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	/**
@@ -40,13 +39,13 @@ public class UserPojo {
 	 * @return the userName
 	 */
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 	/**
 	 * @param userName the userName to set
 	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 	/**
 	 * @return the email
@@ -71,18 +70,6 @@ public class UserPojo {
 	 */
 	public void setAddress(AddressPojo address) {
 		this.address = address;
-	}
-	/**
-	 * @return the geoPojo
-	 */
-	public GeoPojo getGeoPojo() {
-		return geoPojo;
-	}
-	/**
-	 * @param geoPojo the geoPojo to set
-	 */
-	public void setGeoPojo(GeoPojo geoPojo) {
-		this.geoPojo = geoPojo;
 	}
 	/**
 	 * @return the phone

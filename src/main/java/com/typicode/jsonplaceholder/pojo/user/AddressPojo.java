@@ -6,6 +6,8 @@ public class AddressPojo {
 	private String suite;
 	private String city;
 	private String zipCode;
+	private GeoPojo geo;
+	
 	
 	/**
 	 * @return the street
@@ -54,6 +56,18 @@ public class AddressPojo {
 	 */
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+	/**
+	 * @return the geoPojo
+	 */
+	public GeoPojo getGeoPojo() {
+		return geo;
+	}
+	/**
+	 * @param geoPojo the geoPojo to set
+	 */
+	public void setGeoPojo(GeoPojo geo) {
+		this.geo = geo;
 	}
 
 	
