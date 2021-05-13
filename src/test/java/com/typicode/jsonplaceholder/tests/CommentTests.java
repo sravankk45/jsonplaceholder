@@ -4,8 +4,6 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -32,7 +30,6 @@ import io.restassured.response.Response;
 public class CommentTests extends TestBase implements ITest {
 	
 	private Response response;
-	private JsonPath jsonResponse;
 	private ObjectMapper mapper;
 	private List<UserPojo> user;
 	private List<PostPojo> posts;
@@ -163,18 +160,7 @@ public class CommentTests extends TestBase implements ITest {
 	@Test(dataProvider = "comments")
 	public void verifyCommentEmailTest(int commentId) {
 
-		commentOperations = new CommentOperations();
-		comments = new ArrayList<CommentPojo>();
-		
-		response = commentOperations.getCommentById(commentId);
-		jsonResponse = new JsonPath(response.asString());
-		
-		List<String> commentEmailList = jsonResponse.get("email");
-		for(String commentEmail: commentEmailList) {
-			System.out.println(commentEmail);
-			Assert.assertEquals(commentEmail, userEmail);
-		}
-		
+
 	
 	}
 
