@@ -4,6 +4,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.testng.Assert;
 import org.testng.ITest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -30,6 +34,7 @@ import io.restassured.response.Response;
 public class CommentTests extends TestBase implements ITest {
 	
 	private Response response;
+	private JsonPath jsonResponse;
 	private ObjectMapper mapper;
 	private List<UserPojo> user;
 	private List<PostPojo> posts;
@@ -160,7 +165,23 @@ public class CommentTests extends TestBase implements ITest {
 	@Test(dataProvider = "comments")
 	public void verifyCommentEmailTest(int commentId) {
 
-
+		commentOperations = new CommentOperations();
+		comments = new ArrayList<CommentPojo>();
+		
+		response = commentOperations.getCommentById(commentId);
+		jsonResponse = new JsonPath(response.asString());
+		
+		List<String> commentEmailList = jsonResponse.get("email");
+		
+		String ePattern = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+		
+		for(String commentEmail: commentEmailList) {
+			
+	           Pattern p = java.util.regex.Pattern.compile(ePattern, Pattern.CASE_INSENSITIVE);
+	           Matcher m = p.matcher(commentEmail);
+	           Assert.assertTrue(m.matches());
+		}
+		
 	
 	}
 
