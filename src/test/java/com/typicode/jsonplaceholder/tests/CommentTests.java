@@ -40,13 +40,10 @@ public class CommentTests extends TestBase implements ITest {
 	private List<PostPojo> posts;
 	private List<CommentPojo> postComments;
 	private List<CommentPojo> comments;
-	
-	private String userEmail;
-	
 	private UserOperations userOperations;
 	private PostOperations postOperations;
 	private CommentOperations commentOperations;
-	private ThreadLocal<String> testName = new ThreadLocal();
+	private ThreadLocal<String> testName = new ThreadLocal<String>();
 	
 	/**
 	 *  Gets the Base URI before test suite runs
@@ -66,7 +63,7 @@ public class CommentTests extends TestBase implements ITest {
 		
 		int userId;
 		int postId;
-		userEmail = new String();
+
 		userOperations = new UserOperations();
 		postOperations = new PostOperations();
 		commentOperations = new CommentOperations();
@@ -90,8 +87,6 @@ public class CommentTests extends TestBase implements ITest {
 		for(UserPojo user : user) {
 			
 			userId=user.getId();
-			userEmail = user.getEmail();
-			
 			response = postOperations.getUserPosts(userId);
 			
 		}
@@ -131,7 +126,7 @@ public class CommentTests extends TestBase implements ITest {
 	 */
 	@BeforeMethod
 	public void BeforeMethod(Method method, Object[] testData){
-	   testName.set(method.getName() + "_CommentId_" + testData[0]);
+	   testName.set(method.getName() + "_CommentId");
 	   
 	}
 	
@@ -163,7 +158,7 @@ public class CommentTests extends TestBase implements ITest {
 	 *  Test verifies  the comment email of each post by user
 	 */
 	@Test(dataProvider = "comments")
-	public void verifyCommentEmailTest(int commentId) {
+	public void verifyEmailTest(int commentId) {
 
 		commentOperations = new CommentOperations();
 		comments = new ArrayList<CommentPojo>();
