@@ -27,7 +27,7 @@
 
 ### Configuration/setup to be done to run the project
 
-* The below details are configured in config.properies file(available in petstore\src\main\java\com\zooplus\config\config.properties)
+* The below details are configured in config.properies file(available in petstore\src\main\java\com\typicode\jsonplaceholder\config\config.properties)
 	* baseURI for pet store rest api
 
 * TestBase class (com.typicode.jsonplaceholder.base) is base class for all tests and it provides configurations like baseURI and base directory of project to tests
@@ -40,6 +40,6 @@
 * after tests run, open report under test-output/TestReport.html to see interactive HTML report on test execution status.
 * for testng report, open test-output/index.html
 
-# Note: The test name along with parameter data is not reflecting in extent report(same test name repeated) but it can seen in testng (Test name with comment id) report and execution logs, this is an improvement point
+#### Note: The test name along with parameter data is not reflecting in extent report(same test name repeated) but it can seen in testng (Test name with comment id) report and execution logs, this is an improvement point
 
 
