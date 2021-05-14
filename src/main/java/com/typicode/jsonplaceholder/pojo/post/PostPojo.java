@@ -1,5 +1,8 @@
 package com.typicode.jsonplaceholder.pojo.post;
 
+/**
+ *  This class provides Pojo implementation of Posts to use for serialization and de-serialization 
+ */
 public class PostPojo {
 	
 	private int userId;

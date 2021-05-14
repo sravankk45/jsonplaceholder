@@ -31,6 +31,9 @@ import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+/**
+ *  This class provides Tests for Comments on Posts made by Kamren 
+ */
 public class CommentTests extends TestBase implements ITest {
 	
 	private Response response;
@@ -73,7 +76,9 @@ public class CommentTests extends TestBase implements ITest {
 		mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		
 		response = userOperations.getUserByUserName("Kamren");
+		
 		try {
+			
 			user = Arrays.asList(mapper.readValue(response.asPrettyString(), UserPojo[].class));
 		}
 		catch(JsonMappingException e) {
@@ -83,15 +88,14 @@ public class CommentTests extends TestBase implements ITest {
 			e.printStackTrace();
 		}
 		
-		
 		for(UserPojo user : user) {
 			
 			userId=user.getId();
 			response = postOperations.getUserPosts(userId);
-			
 		}
 		
 		try {
+			
 			posts = Arrays.asList(mapper.readValue(response.asPrettyString(), PostPojo[].class));
 		}
 		catch(JsonMappingException e) {
@@ -101,12 +105,12 @@ public class CommentTests extends TestBase implements ITest {
 			e.printStackTrace();
 		}
 		
-		
 		for(PostPojo post : posts) {
 			
 			postId=post.getId();
 			response = commentOperations.getCommentsByPostId(postId);
 			try {
+				
 				postComments = Arrays.asList(mapper.readValue(response.asPrettyString(), CommentPojo[].class));
 			}
 			catch(JsonMappingException e) {

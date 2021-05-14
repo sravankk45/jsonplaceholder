@@ -4,6 +4,11 @@ import static io.restassured.RestAssured.given;
 
 import io.restassured.response.Response;
 
+/**
+ *  This class provides implementations of operations that can be performed on Comments 
+ *  like getting comments by post id
+ *  and getting comments by comment id
+ */
 public class CommentOperations {
 	
 	public Response getCommentsByPostId(int postId) {

@@ -1,5 +1,8 @@
 package com.typicode.jsonplaceholder.pojo.user;
 
+/**
+ *  This class provides Pojo implementation of Address to use for serialization and de-serialization for User data
+ */
 public class AddressPojo {
 	
 	private String street;

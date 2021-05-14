@@ -1,5 +1,8 @@
 package com.typicode.jsonplaceholder.pojo.comment;
 
+/**
+ *  This class provides Pojo implementation of Comment to use for serialization and de-serialization 
+ */
 public class CommentPojo {
 	
 	private int postId;

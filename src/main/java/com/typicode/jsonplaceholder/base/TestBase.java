@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-
+/**
+ *  This class is base class to provide configuration details and driver and base directory
+ */
 public class TestBase{
 	
 	private static Properties properties;

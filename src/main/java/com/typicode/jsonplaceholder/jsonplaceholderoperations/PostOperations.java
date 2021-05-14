@@ -4,6 +4,10 @@ import static io.restassured.RestAssured.given;
 
 import io.restassured.response.Response;
 
+/**
+ *  This class provides implementations of operations that can be performed on Posts 
+ *  like getting Posts by user id
+ */
 public class PostOperations {
 	
 public Response getUserPosts(int userId) {

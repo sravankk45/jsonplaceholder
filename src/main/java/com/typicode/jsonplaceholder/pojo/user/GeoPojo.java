@@ -1,5 +1,8 @@
 package com.typicode.jsonplaceholder.pojo.user;
 
+/**
+ *  This class provides Pojo implementation of Geo data to use for serialization and de-serialization for user data
+ */
 public class GeoPojo {
 	
 	private String lat;

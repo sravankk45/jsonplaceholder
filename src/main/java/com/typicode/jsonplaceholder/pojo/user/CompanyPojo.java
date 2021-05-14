@@ -1,5 +1,8 @@
 package com.typicode.jsonplaceholder.pojo.user;
 
+/**
+ *  This class provides Pojo implementation of Company  to use for serialization and de-serialization for User data
+ */
 public class CompanyPojo {
 	
 	private String name;
