@@ -141,6 +141,9 @@ public class CommentTests extends TestBase implements ITest {
 	   return testName.get();
 	}
 	
+	/**
+	 *  Prepares comment ids data based on comments list prepared
+	 */
 	@DataProvider(name = "comments")
 	   public Object[] commentIdsData() {
 	
@@ -167,6 +170,7 @@ public class CommentTests extends TestBase implements ITest {
 		commentOperations = new CommentOperations();
 		comments = new ArrayList<CommentPojo>();
 		
+		//gets the comment data by comment id
 		response = commentOperations.getCommentById(commentId);
 		jsonResponse = new JsonPath(response.asString());
 		
@@ -175,7 +179,8 @@ public class CommentTests extends TestBase implements ITest {
 		String ePattern = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
 		
 		for(String commentEmail: commentEmailList) {
-			
+				
+				//checks the email against the pattern specified and validates
 	           Pattern p = java.util.regex.Pattern.compile(ePattern, Pattern.CASE_INSENSITIVE);
 	           Matcher m = p.matcher(commentEmail);
 	           Assert.assertTrue(m.matches());
